@@ -67,6 +67,7 @@ iPad 7th Gen (2019) (Thanks to @RazMashat on twitter for keys =) )
 
 iPod Touch 7th Gen (2019)
 
+<br/>
 
 SUPPORT COMING FOR:
 
