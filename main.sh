@@ -144,10 +144,34 @@ if [ $? == 0 ]; then
    device="iPhone9,4"
    echo $device
 fi
+files/igetnonce | grep 'd20ap' &> /dev/null
+if [ $? == 0 ]; then
+   echo "Supported Device"
+   device="iPhone10,1"
+   echo $device
+fi
+files/igetnonce | grep 'd21ap' &> /dev/null
+if [ $? == 0 ]; then
+   echo "Supported Device"
+   device="iPhone10,2"
+   echo $device
+fi
 files/igetnonce | grep 'd22ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone10,3"
+   echo $device
+fi
+files/igetnonce | grep 'd201ap' &> /dev/null
+if [ $? == 0 ]; then
+   echo "Supported Device"
+   device="iPhone10,4"
+   echo $device
+fi
+files/igetnonce | grep 'd211ap' &> /dev/null
+if [ $? == 0 ]; then
+   echo "Supported Device"
+   device="iPhone10,5"
    echo $device
 fi
 files/igetnonce | grep 'd221ap' &> /dev/null
@@ -170,7 +194,7 @@ echo "Please connect device in DFU mode. Press enter when ready to continue"
 
 read randomIrrelevant
 
-if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ]; then
+if [ $device == iPhone10 ]; then
     git clone https://github.com/MatthewPierson/ipwndfuA11
     cd ipwndfuA11
 else
@@ -194,12 +218,12 @@ done
 
 sleep 3
 
-if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ]; then
-    echo "Device is an iPhone X, using akayn's signature check remover"
+if [ $device == iPhone10 ]; then
+    echo "Device is an iPhone 8, 8+ or X, using akayn's signature check remover"
     ./ipwndfu --patch
     sleep 1
 else
-    echo "Device is NOT an iPhone X, using Linus's signature check remover"
+    echo "Device is not an iPhone 8, 8+ or X, using Linus's signature check remover"
     python2 rmsigchks.py
     sleep 1
 fi
@@ -209,7 +233,7 @@ echo "Device is now in PWNDFU mode with signature checks removed (Thanks to Linu
 echo "Entering PWNREC mode"
 cd files
 
-if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ]; then
+if [ $device == iPhone10 ]; then
     ./irecovery -f junk.txt
 fi
 
