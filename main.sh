@@ -79,106 +79,112 @@ fi
 echo "$generator"
 
 
-files/igetnonce | grep 'n53ap' &> /dev/null
+./irecovery -q | grep 'n53ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone6,2"
    echo $device
 fi
 
-files/igetnonce | grep 'n51ap' &> /dev/null
+./irecovery -q | grep 'n51ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone6,1"
    echo $device
 fi
 
-files/igetnonce | grep 'j71ap' &> /dev/null
+./irecovery -q | grep 'j71ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPad4,1"
    echo $device
 fi
 
-files/igetnonce | grep 'j72ap' &> /dev/null
+./irecovery -q | grep 'j72ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPad4,2"
    echo $device
 fi
 
-files/igetnonce | grep 'j85ap' &> /dev/null
+./irecovery -q | grep 'j85ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPad4,4"
    echo $device
 fi
 
-files/igetnonce | grep 'j86ap' &> /dev/null
+./irecovery -q | grep 'j86ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPad4,5"
    echo $device
 fi
-files/igetnonce | grep 'd11ap' &> /dev/null
+./irecovery -q | grep 'd11ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone9,2"
    echo $device
 fi
-files/igetnonce | grep 'd10ap' &> /dev/null
+./irecovery -q | grep 'd10ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone9,1"
    echo $device
 fi
-files/igetnonce | grep 'd101ap' &> /dev/null
+./irecovery -q | grep 'd101ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone9,3"
    echo $device
 fi
-files/igetnonce | grep 'd111ap' &> /dev/null
+./irecovery -q | grep 'd111ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
    device="iPhone9,4"
    echo $device
 fi
-files/igetnonce | grep 'd20ap' &> /dev/null
+./irecovery -q | grep 'd20ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,1"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,1"
+   echo $model
 fi
-files/igetnonce | grep 'd21ap' &> /dev/null
+./irecovery -q | grep 'd21ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,2"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,2"
+   echo $model
 fi
-files/igetnonce | grep 'd22ap' &> /dev/null
+./irecovery -q | grep 'd22ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,3"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,3"
+   echo $model
 fi
-files/igetnonce | grep 'd201ap' &> /dev/null
+./irecovery -q | grep 'd201ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,4"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,4"
+   echo $model
 fi
-files/igetnonce | grep 'd211ap' &> /dev/null
+./irecovery -q | grep 'd211ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,5"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,5"
+   echo $model
 fi
-files/igetnonce | grep 'd221ap' &> /dev/null
+./irecovery -q | grep 'd221ap' &> /dev/null
 if [ $? == 0 ]; then
    echo "Supported Device"
-   device="iPhone10,6"
-   echo $device
+   device="iPhone10"
+   model="iPhone10,6"
+   echo $model
 fi
 
 if [ -z "$device" ]
@@ -203,7 +209,7 @@ else
 fi
 echo "Starting ipwndfu"
 
-string=$(../files/lsusb | grep -c "checkm8")
+string=$(./irecovery -q | grep -c "checkm8")
 until [ $string = 1 ];
 do
     killall iTunes && killall iTunesHelper
@@ -213,7 +219,7 @@ do
     echo "Please just enter DFU mode again on each reboot"
     echo "The script will run ipwndfu again and again until the device is in PWNDFU mode"
     ./ipwndfu -p
-    string=$(../files/lsusb | grep -c "checkm8")
+    string=$(./irecovery -q | grep -c "checkm8")
 done
 
 sleep 3
@@ -235,9 +241,8 @@ cd files
 
 if [ $device == iPhone10 ]; then
     ./irecovery -f junk.txt
+	./irecovery -f ibss."$model".img4
 fi
-
-./irecovery -f ibss."$device".img4
 
 if [ $device = iPhone6,1 ] || [ $device = iPhone6,2 ] || [ $device = iPad4,1 ] || [ $device = iPad4,2 ] || [ $device = iPad4,3 ] || [ $device = iPad4,4 ] || [ $device = iPad4,5 ] || [ $device = iPad4,6 ] || [ $device = iPad4,7 ] || [ $device = iPad4,8 ] || [ $device = iPad4,9 ];
 then
