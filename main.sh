@@ -241,7 +241,7 @@ cd files
 
 if [ $device == iPhone10 ]; then
     ./irecovery -f junk.txt
-	./irecovery -f ibss."$model".img4
+    ./irecovery -f ibss."$model".img4
 fi
 
 if [ $device = iPhone6,1 ] || [ $device = iPhone6,2 ] || [ $device = iPad4,1 ] || [ $device = iPad4,2 ] || [ $device = iPad4,3 ] || [ $device = iPad4,4 ] || [ $device = iPad4,5 ] || [ $device = iPad4,6 ] || [ $device = iPad4,7 ] || [ $device = iPad4,8 ] || [ $device = iPad4,9 ];
