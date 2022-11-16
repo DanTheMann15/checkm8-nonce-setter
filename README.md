@@ -37,8 +37,9 @@ Please don't ask me stupid questions, I'll just ignore you. Please don't use iss
 
 
 Support includes : 
-<br/>
-<br/>
+
+// iPhone //
+
 iPhone 5s
 
 iPhone 7
@@ -51,27 +52,33 @@ iPhone 8 Plus
 
 iPhone X
 
-<br/>
-
-iPad Air 1
-
-iPad Mini 2
+// iPad //
 
 iPad 6th Gen (2018)
 
-iPad Mini 3
-
 iPad 7th Gen (2019) (Thanks to @RazMashat on twitter for keys =) )
 
-iPad Pro 12.9 inch 2nd Gen (2017) (UNTESTED)
-iPad Pro 10.5 inch (UNTESTED)
+// iPad Air //
 
-<br/>
+* iPad Air (1st gen)
 
-iPod Touch 6th Gen (2015) (UNTESTED)
-iPod Touch 7th Gen (2019)
+// iPad mini // 
 
-<br/>
+* iPad Mini 2
+
+* iPad Mini 3
+
+// iPad Pro //
+
+* iPad Pro 12.9 inch 2nd Gen (2017) (UNTESTED)
+
+* iPad Pro 10.5 inch (2017) (UNTESTED)
+
+// iPod touch //
+
+* iPod Touch 6th Gen (2015) (UNTESTED)
+
+* iPod Touch 7th Gen (2019)
 
 -----------------------------------------
 
